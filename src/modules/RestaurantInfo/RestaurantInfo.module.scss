@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  .info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    column-gap: 20px;
+    & > * {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.menuTitle {
+}
+.menuOptions {
+  margin-top: 20px;
+
+  button:not(:first-child) {
+    margin-top: 10px;
+  }
+}

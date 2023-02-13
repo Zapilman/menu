@@ -1,0 +1,15 @@
+.infoWrapper {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  .restIconWrapper {
+    max-width: 56px;
+    img {
+      width: 100%;
+    }
+  }
+  .restInfo {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
