@@ -1,0 +1,19 @@
+.navBtn {
+  background-color: #5f5fd91a;
+  color: #6638dd;
+  border: none;
+  width: 100%;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+ul.optionWrapper {
+  padding-left: 20px;
+  font-size: 18px;
+
+  & li {
+    padding-top: 10px;
+    cursor: pointer;
+    width: max-content;
+  }
+}

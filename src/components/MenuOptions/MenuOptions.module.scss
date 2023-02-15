@@ -3,7 +3,10 @@
 .menuOptions {
   margin-top: 20px;
 
-  button:not(:first-child) {
-    margin-top: 10px;
+  button {
+    width: 100%;
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
   }
 }

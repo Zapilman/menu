@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Collapse } from 'react-collapse';
 import Button from '../../UI/Button/Button';
 
+import styles from './MenuNavigation.module.scss';
+
 const MenuNavigation = () => {
   const [open, setOpen] = useState(false);
   const options = [
@@ -21,11 +23,12 @@ const MenuNavigation = () => {
         onClick={() => {
           setOpen((prev) => !prev);
         }}
+        classNames={styles.navBtn}
       >
         Меню
       </Button>
       <Collapse isOpened={open}>
-        <ul>
+        <ul className={styles.optionWrapper}>
           {options.map((option, index) => {
             return <li key={index}>{option}</li>;
           })}
