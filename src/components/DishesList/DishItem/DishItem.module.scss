@@ -1,0 +1,61 @@
+.dishWrapper {
+  position: relative;
+  margin-top: 40px;
+
+  .dish {
+    transition: all 0.3s ease;
+
+    .dishInfo {
+      transition: all 0.2s ease;
+      cursor: pointer;
+      width: 60%;
+
+      & h4 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      & p {
+        max-height: 40px;
+        margin-top: 4px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      & span {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+
+    & button {
+      margin-top: 20px;
+    }
+
+    &_full {
+      padding-top: 450px;
+
+      .dishInfo {
+        width: 100%;
+      }
+    }
+
+    padding-bottom: 40px;
+    border-bottom: 1px solid black;
+  }
+  .dishImage {
+    position: absolute;
+    width: 35%;
+    top: 0;
+    right: 0;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &_full {
+      width: 100%;
+    }
+  }
+}

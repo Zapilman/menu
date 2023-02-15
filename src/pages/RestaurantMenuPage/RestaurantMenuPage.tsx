@@ -4,7 +4,7 @@ import CenterContainer from '../../UI/CenterContainer/CenterContainer';
 
 const RestaurantMenuPage = () => {
   return (
-    <CenterContainer>
+    <CenterContainer size="md">
       <Menu />
     </CenterContainer>
   );
