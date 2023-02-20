@@ -4,10 +4,10 @@ import Header from '../../modules/Header/Header';
 
 const Layout = () => {
   return (
-    <>
+    <div style={{ maxHeight: '100vh', overflow: 'hidden' }}>
       <Header />
       <Outlet />
-    </>
+    </div>
   );
 };
 
