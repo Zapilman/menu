@@ -3,9 +3,12 @@ import Button from '../../../UI/Button/Button';
 import cn from 'classnames';
 
 import styles from './DishItem.module.scss';
+import { useAppDispatch } from '../../../store/store';
+import { increment } from '../../../store/reducers/selectedDishes/selectedDishesSlice';
 
 const DishItem = () => {
   const [showFull, setShowFull] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   return (
     <div className={styles.dishWrapper}>
@@ -25,7 +28,13 @@ const DishItem = () => {
           </p>
           <span>110 г</span>
         </div>
-        <Button>53 ₴</Button>
+        <Button
+          onClick={() => {
+            dispatch(increment());
+          }}
+        >
+          53 ₴
+        </Button>
       </div>
       <img
         className={cn(styles.dishImage, { [styles.dishImage_full]: showFull })}
