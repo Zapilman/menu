@@ -2,6 +2,8 @@
 ./client/node_modules
 **/node_modules
 
+mongo-data-4.4
+
 # compiled output
 ./server/dist
 ./server/node_modules
