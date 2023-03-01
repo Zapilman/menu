@@ -1,11 +1,18 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { Restaurant } from './restaurant.model';
+import { CreateRestaurantDto } from './dto/create-restaurant.dto';
+import { RestaurantService } from './restaurant.service';
 
 @Controller('restaurant')
-export class RestaurantControler {
+export class RestaurantController {
+  constructor(private readonly restaurantService: RestaurantService) {}
+
   @Get(':id')
-  async get(@Param('id') id: string) {}
+  async get(@Param('id') id: string) {
+    return 'restaurant';
+  }
 
   @Post()
-  async create(@Body() dto: Omit<Restaurant, '_id'>) {}
+  async create(@Body() dto: CreateRestaurantDto) {
+    return this.restaurantService.create(dto);
+  }
 }
