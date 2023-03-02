@@ -11,6 +11,11 @@ export class RestaurantController {
     return 'restaurant';
   }
 
+  @Post(':id/menu')
+  async getWithMenu(@Param('id') id: string, @Body() body: { limit: number }) {
+    return this.restaurantService.findWithMenu({ id, limit: body.limit });
+  }
+
   @Post()
   async create(@Body() dto: CreateRestaurantDto) {
     return this.restaurantService.create(dto);

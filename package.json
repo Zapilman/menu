@@ -1,12 +1,8 @@
 {
-  "name": "recommend-app",
+  "name": "zapilman-menu",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start:client": "cd ./client & yarn start"
-  },
-  "dependencies": {
-    "@nestjs/jwt": "^10.0.2"
   }
 }

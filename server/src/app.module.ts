@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { getMongoConfig } from './configs/mongo.config';
+import { MenuModule } from './menu/menu.module';
 import { RestaurantModule } from './restaurant/restaurant.module';
 
 @Module({
@@ -17,6 +18,7 @@ import { RestaurantModule } from './restaurant/restaurant.module';
     }),
     AuthModule,
     RestaurantModule,
+    MenuModule,
   ],
   controllers: [AppController],
   providers: [AppService],

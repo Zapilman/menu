@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { getJwtConfig } from 'src/configs/jwt.config';
@@ -13,9 +13,10 @@ import { AuthService } from './auth.service';
     TypegooseModule.forFeature([
       { typegooseClass: AuthModel, schemaOptions: { collection: 'Auth' } },
     ]),
+    ConfigModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
-      inject: [ConfigModule],
+      inject: [ConfigService],
       useFactory: getJwtConfig,
     }),
   ],
