@@ -1,7 +1,8 @@
 import React from 'react';
-import DishesList from '_components/DishesList/DishesList';
-import MenuNavigation from '_components/Menu/MenuNavigation/MenuNavigation';
+import MenuNavigation from '_modules/Menu/MenuNavigation/MenuNavigation';
+import DishesList from '_modules/Menu/DishesList/DishesList';
 import CenterContainer from '../../UI/CenterContainer/CenterContainer';
+import MenuActivity from '_modules/Menu/MenuActivity/MenuActivity';
 
 const RestaurantMenuPage = () => {
   return (
@@ -13,13 +14,14 @@ const RestaurantMenuPage = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '300px 1fr',
+          gridTemplateColumns: '300px 1fr 300px',
           columnGap: '10px',
           marginTop: '30px',
         }}
       >
         <MenuNavigation />
         <DishesList />
+        <MenuActivity />
       </div>
     </CenterContainer>
   );
