@@ -1,14 +1,43 @@
 version: "3"
 services:
+  client:
+    image: client
+    build: ./client/
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - menu
+    volumes:
+      - ./client/:/usr/src/app
+      - /usr/src/app/node_modules
+  server:
+    image: server
+    build: ./server/
+    ports:
+      - "8080:8080"
+    networks:
+      - menu
+    volumes:
+      - ./server/:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+    command: yarn start:dev
   mongo:
     image: mongo:4.4.4
     container_name: mongo
     restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - menu
     ports:
       - 27017:27017
-    volumes:
-      - ./mongo-data-4.4:/data/db
-    command: --wiredTigerCacheSizeGB 1.5
+
+networks:
+  menu:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local

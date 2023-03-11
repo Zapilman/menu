@@ -15,7 +15,8 @@ const getMongoString = (configService: ConfigService) =>
   'mongodb://' +
   configService.get('MONGO_HOST') +
   ':' +
-  configService.get('MONGO_PORT');
+  configService.get('MONGO_PORT') +
+  '/menu';
 
 const getMongoOptions = () => ({
   useNewUrlParser: true,

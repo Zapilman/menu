@@ -17,7 +17,7 @@ export class MenuService {
   }
 
   findAll() {
-    return `This action returns all menu`;
+    return this.menuModel.find({});
   }
 
   findOne(id: number) {
