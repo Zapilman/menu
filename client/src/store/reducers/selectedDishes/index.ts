@@ -1,3 +1,3 @@
-export { getSelectedDishes } from './select';
+export { getSelectedDishes } from './selectedDishes.selects';
 
-export { default as conterReducer } from './selectedDishesSlice';
+export { default as conterReducer } from './selectedDishes.slice';

@@ -1,10 +1,11 @@
-import React from 'react';
-import LanguageSelect from '../../components/LanguageSelect/LanguageSelect';
-import RestaurantHeaderInfo from '../../components/RestaurantHeaderInfo/RestaurantHeaderInfo';
-import { getSelectedDishes } from '../../store/reducers/selectedDishes';
-import { useAppSelector } from '../../store/store';
-import Button from '../../UI/Button/Button';
-import CenterContainer from '../../UI/CenterContainer/CenterContainer';
+import LanguageSelect from '_components/LanguageSelect/LanguageSelect';
+import RestaurantHeaderInfo from '_components/Restaurant/RestaurantHeaderInfo/RestaurantHeaderInfo';
+
+import { getSelectedDishes } from '_store/reducers/selectedDishes';
+import { useAppSelector } from '_store/store';
+
+import Button from '_UI/Button/Button';
+import CenterContainer from '_UI/CenterContainer/CenterContainer';
 
 import styles from './Header.module.scss';
 

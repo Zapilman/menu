@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Collapse } from 'react-collapse';
-import Button from '../../UI/Button/Button';
+import Button from '../../../UI/Button/Button';
 
 import styles from './MenuNavigation.module.scss';
 

@@ -1,4 +1,4 @@
-import ContentSection from '../../UI/ContentSection/ContentSection';
+import ContentSection from '../../../UI/ContentSection/ContentSection';
 
 import styles from './RestaurantHeaderInfo.module.scss';
 

@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import styles from './DishItem.module.scss';
 import { useAppDispatch } from '../../../store/store';
-import { increment } from '../../../store/reducers/selectedDishes/selectedDishesSlice';
+import { increment } from '../../../store/reducers/selectedDishes/selectedDishes.slice';
 
 const DishItem = () => {
   const [showFull, setShowFull] = useState<boolean>(false);

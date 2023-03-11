@@ -1,6 +1,6 @@
 {
   "include": ["src/**/*", "custom.d.ts"],
-  "exclude": ["./dist/"],
+  "exclude": ["./dist/", "node_modules"],
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
@@ -11,6 +11,14 @@
     "moduleResolution": "node",
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "_components/*": ["./src/components/*"],
+      "_modules/*": ["./src/modules/*"],
+      "_UI/*": ["./src/UI/*"],
+      "_store/*": ["./src/store/*"]
+      // "_hooks/*": ["./src/hooks/*"]
+    }
   }
 }

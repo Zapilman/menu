@@ -1,7 +1,7 @@
 import React from 'react';
-import AboutRestaurant from '../../components/AboutRestaurant/AboutRestaurant';
-import MenuOptions from '../../components/MenuOptions/MenuOptions';
-import RestaurantHeaderInfo from '../../components/RestaurantHeaderInfo/RestaurantHeaderInfo';
+import AboutRestaurant from '../../components/Restaurant/AboutRestaurant/AboutRestaurant';
+import MenuOptions from '../../components/Menu/MenuOptions/MenuOptions';
+import RestaurantHeaderInfo from '../../components/Restaurant/RestaurantHeaderInfo/RestaurantHeaderInfo';
 import ContentSection from '../../UI/ContentSection/ContentSection';
 
 import styles from './RestaurantInfo.module.scss';
