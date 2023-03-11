@@ -41,11 +41,19 @@ export class RestaurantService {
             localField: '_id',
             foreignField: 'restaurantId',
             as: 'menu',
+            pipeline: [{ $project: { name: 1 } }],
+          },
+        },
+
+        {
+          $addFields: {
+            menuCount: { $size: '$menu' },
           },
         },
         {
-          $addFields: {
-            reviewCount: { $size: '$menu' },
+          $project: {
+            name: 1,
+            menu: 1,
           },
         },
       ])
