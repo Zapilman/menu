@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { RestaurantService } from './restaurant.service';
 
@@ -16,8 +25,12 @@ export class RestaurantController {
     return this.restaurantService.findWithMenu({ id, limit: body.limit });
   }
 
+  @UseInterceptors(FileInterceptor('photo'))
   @Post()
-  async create(@Body() dto: CreateRestaurantDto) {
-    return this.restaurantService.create(dto);
+  async create(
+    @Body() dto: CreateRestaurantDto,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    return this.restaurantService.create({ ...dto, photo: file });
   }
 }

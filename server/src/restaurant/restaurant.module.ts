@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypegooseModule } from 'nestjs-typegoose';
+import { FilesModule } from 'src/files/files.module';
 import { RestaurantController } from './restaurant.controller';
 import { RestaurantModel } from './restaurant.model';
 import { RestaurantService } from './restaurant.service';
@@ -12,6 +13,7 @@ import { RestaurantService } from './restaurant.service';
         schemaOptions: { collection: 'Restaurant' },
       },
     ]),
+    FilesModule,
   ],
   providers: [RestaurantService],
 })

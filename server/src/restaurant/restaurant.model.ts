@@ -1,5 +1,6 @@
 import { prop } from '@typegoose/typegoose';
 import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
+import { TPhoto } from 'src/types/Photo.type';
 
 export interface RestaurantModel extends Base {}
 export class RestaurantModel extends TimeStamps {
@@ -19,5 +20,5 @@ export class RestaurantModel extends TimeStamps {
   deliveryNumber?: string;
 
   @prop()
-  photo: string;
+  photo: TPhoto;
 }

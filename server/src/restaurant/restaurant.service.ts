@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common/decorators';
 import { ModelType, DocumentType } from '@typegoose/typegoose/lib/types';
 import mongoose from 'mongoose';
 import { InjectModel } from 'nestjs-typegoose';
+import { FilesService } from 'src/files/files.service';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { FindRestaurantDto } from './dto/find-restaurant.dto';
 import { RestaurantModel } from './restaurant.model';
@@ -11,12 +12,14 @@ export class RestaurantService {
   constructor(
     @InjectModel(RestaurantModel)
     private readonly restaurantModel: ModelType<RestaurantModel>,
+    private readonly fileService: FilesService,
   ) {}
 
   async create(
     dto: CreateRestaurantDto,
   ): Promise<DocumentType<RestaurantModel>> {
-    return this.restaurantModel.create(dto);
+    const image = await this.fileService.saveFiles([dto.photo]);
+    return this.restaurantModel.create({ ...dto, photo: image[0] });
   }
 
   async findWithMenu(dto: FindRestaurantDto) {

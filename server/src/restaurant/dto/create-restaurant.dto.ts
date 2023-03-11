@@ -4,5 +4,5 @@ export class CreateRestaurantDto {
   address: string;
   workingHours: string;
   deliveryNumber?: string;
-  photo: string;
+  photo: Express.Multer.File;
 }
