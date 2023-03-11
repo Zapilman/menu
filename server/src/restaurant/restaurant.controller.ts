@@ -17,7 +17,7 @@ export class RestaurantController {
 
   @Get(':id')
   async get(@Param('id') id: string) {
-    return 'restaurant';
+    return this.restaurantService.findById(id);
   }
 
   @Post(':id/menu')

@@ -22,6 +22,10 @@ export class RestaurantService {
     return this.restaurantModel.create({ ...dto, photo: image[0] });
   }
 
+  async findById(id: string) {
+    return this.restaurantModel.findById(id).exec();
+  }
+
   async findWithMenu(dto: FindRestaurantDto) {
     return this.restaurantModel
       .aggregate([

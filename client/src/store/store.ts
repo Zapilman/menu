@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { restaurantReducer } from './reducers/restaurant';
 import { conterReducer } from './reducers/selectedDishes';
 
 const store = configureStore({
   reducer: {
     counter: conterReducer,
+    restaurant: restaurantReducer,
   },
 });
 
