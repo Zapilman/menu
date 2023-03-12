@@ -1,12 +1,15 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../../modules/Header/Header';
+import Header from '_modules/Header/Header';
+
+import styles from './Layout.module.scss';
 
 const Layout = () => {
   return (
-    <div style={{ maxHeight: '100vh' }}>
+    <div className={styles.wrapper}>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };

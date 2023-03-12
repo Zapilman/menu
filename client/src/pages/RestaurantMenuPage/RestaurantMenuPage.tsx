@@ -31,8 +31,10 @@ const RestaurantMenuPage = () => {
         style={{
           display: 'grid',
           gridTemplateColumns: '300px 1fr 300px',
+          gridTemplateRows: 'max-content',
           columnGap: '10px',
           marginTop: '30px',
+          position: 'relative',
         }}
       >
         <MenuNavigation />

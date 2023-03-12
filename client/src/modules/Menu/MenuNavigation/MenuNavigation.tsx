@@ -18,7 +18,7 @@ const MenuNavigation = () => {
     'Морозиво',
   ];
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Button
         onClick={() => {
           setOpen((prev) => !prev);
