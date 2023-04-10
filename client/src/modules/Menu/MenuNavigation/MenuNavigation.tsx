@@ -1,39 +1,32 @@
-import React, { useState } from 'react';
-import { Collapse } from 'react-collapse';
-import Button from '../../../UI/Button/Button';
+import { useState } from 'react';
+import { useQuery } from 'react-query';
+import { restaurantApi } from 'src/api/restaurantApi';
+import MenuCollapse from '_components/Menu/MenuCollapse/MenuCollapse';
 
 import styles from './MenuNavigation.module.scss';
 
 const MenuNavigation = () => {
   const [open, setOpen] = useState(false);
-  const options = [
-    'Чебуреки',
-    'Янтики',
-    'Супи',
-    'Салати',
-    'Піде',
-    'Страви з тіста',
-    'Мангал',
-    'Закуски та гарніри',
-    'Морозиво',
-  ];
+  const { data, isLoading } = useQuery(
+    'restaurantWithMenu',
+    restaurantApi.getRestaurantWithMenu,
+  );
+  if (isLoading) {
+    return <div>loading</div>;
+  }
+
   return (
     <div className={styles.wrapper}>
-      <Button
-        onClick={() => {
-          setOpen((prev) => !prev);
-        }}
-        classNames={styles.navBtn}
-      >
-        Меню
-      </Button>
-      <Collapse isOpened={open}>
-        <ul className={styles.optionWrapper}>
-          {options.map((option, index) => {
-            return <li key={index}>{option}</li>;
-          })}
-        </ul>
-      </Collapse>
+      {data.menu.map((menuItem) => {
+        return (
+          <MenuCollapse
+            key={menuItem._id}
+            open={open}
+            headerText={menuItem.name}
+            onCollapseHeaderClick={() => setOpen((prev) => !prev)}
+          />
+        );
+      })}
     </div>
   );
 };

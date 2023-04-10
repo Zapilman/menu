@@ -1,7 +1,9 @@
-import React from 'react';
+import { getRestaurantSelector } from '_store/reducers/restaurant/restaurant.select';
+import { useAppSelector } from '_store/store';
 
 const RestaurantDescription = () => {
-  return <div>RestaurantDescriptions</div>;
+  const { description } = useAppSelector(getRestaurantSelector);
+  return <div>{description}</div>;
 };
 
 export default RestaurantDescription;

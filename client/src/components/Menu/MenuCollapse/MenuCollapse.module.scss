@@ -1,0 +1,29 @@
+.wrapper {
+  position: sticky;
+  top: 120px;
+  height: max-content;
+}
+
+.navBtn {
+  background-color: #5f5fd91a;
+  color: #6638dd;
+  border: none;
+  width: 100%;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.active {
+  color: red;
+}
+
+ul.optionWrapper {
+  padding-left: 20px;
+  font-size: 18px;
+
+  & li {
+    padding-top: 10px;
+    cursor: pointer;
+    width: max-content;
+  }
+}

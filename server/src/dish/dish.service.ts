@@ -3,37 +3,40 @@ import { ModelType, DocumentType } from '@typegoose/typegoose/lib/types';
 import mongoose from 'mongoose';
 import { InjectModel } from 'nestjs-typegoose';
 import { FilesService } from 'src/files/files.service';
-import { CreateRestaurantDto } from './dto/create-restaurant.dto';
-import { FindRestaurantDto } from './dto/find-restaurant.dto';
-import { RestaurantModel } from './restaurant.model';
+import { DishModel } from './dish.model';
+import { CreateDishDto } from './dto/create-dish.dto';
+import { FindDishDto } from './dto/find-dish.dto';
 
 @Injectable()
-export class RestaurantService {
+export class DishService {
   constructor(
-    @InjectModel(RestaurantModel)
-    private readonly restaurantModel: ModelType<RestaurantModel>,
+    @InjectModel(DishModel)
+    private readonly dishModel: ModelType<DishModel>,
     private readonly fileService: FilesService,
   ) {}
 
-  async create(
-    dto: CreateRestaurantDto,
-  ): Promise<DocumentType<RestaurantModel>> {
-    const image = await this.fileService.saveFiles([dto.photo]);
-    return this.restaurantModel.create({ ...dto, photo: image[0] });
+  async create(dto: CreateDishDto): Promise<DocumentType<DishModel>> {
+    let photo;
+    if (dto?.photo) {
+      const image = await this.fileService.saveFiles([dto.photo]);
+      photo = image[0];
+    }
+    return this.dishModel.create({
+      ...dto,
+      photo,
+    });
   }
 
   async findById(id: string) {
-    return this.restaurantModel.findById(id).exec();
+    return this.dishModel.findById(id).exec();
   }
 
-  async updateById(id: string, dto: CreateRestaurantDto) {
-    return this.restaurantModel
-      .findByIdAndUpdate(id, dto, { new: true })
-      .exec();
+  async updateById(id: string, dto: CreateDishDto) {
+    return this.dishModel.findByIdAndUpdate(id, dto, { new: true }).exec();
   }
 
-  async findWithMenu(dto: FindRestaurantDto) {
-    return this.restaurantModel
+  async findWithMenu(dto: FindDishDto) {
+    return this.dishModel
       .aggregate([
         {
           $match: {

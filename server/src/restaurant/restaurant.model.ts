@@ -17,8 +17,11 @@ export class RestaurantModel extends TimeStamps {
   workingHours: string;
 
   @prop()
-  deliveryNumber?: string;
+  photo: TPhoto;
 
   @prop()
-  photo: TPhoto;
+  description: string;
+
+  @prop()
+  deliveryNumber?: string;
 }

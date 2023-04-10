@@ -8,7 +8,7 @@ const Layout = () => {
     <div className={styles.wrapper}>
       <Header />
       <main>
-        <Outlet />
+        <Outlet context={{ otherKey: 1 }} />
       </main>
     </div>
   );

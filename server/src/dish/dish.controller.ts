@@ -10,12 +10,12 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CreateRestaurantDto } from './dto/create-restaurant.dto';
-import { RestaurantService } from './restaurant.service';
+import { DishService } from './dish.service';
+import { CreateDishDto } from './dto/create-dish.dto';
 
-@Controller('restaurant')
-export class RestaurantController {
-  constructor(private readonly restaurantService: RestaurantService) {}
+@Controller('dish')
+export class DishController {
+  constructor(private readonly restaurantService: DishService) {}
 
   @Get(':id')
   async get(@Param('id') id: string) {
@@ -34,14 +34,14 @@ export class RestaurantController {
   @UseInterceptors(FileInterceptor('photo'))
   @Post()
   async create(
-    @Body() dto: CreateRestaurantDto,
+    @Body() dto: CreateDishDto,
     @UploadedFile() file: Express.Multer.File,
   ) {
     return this.restaurantService.create({ ...dto, photo: file });
   }
 
   @Patch(':id')
-  async patch(@Param('id') id: string, @Body() dto: CreateRestaurantDto) {
+  async patch(@Param('id') id: string, @Body() dto: CreateDishDto) {
     const updatedProduct = await this.restaurantService.updateById(id, dto);
     if (!updatedProduct) {
       throw new NotFoundException('PRODUCT_NOT_FOUND_ERROR');

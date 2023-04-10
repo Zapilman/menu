@@ -10,7 +10,7 @@ const MenuOptions = () => {
     <ContentSection>
       <h2 className={styles.menuTitle}>Розділи меню:</h2>
       <div className={styles.menuOptions}>
-        <Link to={'/asdasd/menu'}>
+        <Link to={'/restaurant/menu'}>
           <Button>Меню</Button>
         </Link>
 
