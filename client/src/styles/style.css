@@ -39,6 +39,7 @@ ul li {
   padding: 0;
   margin: 0;
   border: 0;
+  transition: all 0.3s ease;
 }
 *,
 *:before,
@@ -73,6 +74,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  background-color: var(--back-color);
 }
 
 input,

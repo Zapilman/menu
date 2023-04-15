@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import store from './store/store';
+import { ThemeProvider } from './context/theme';
 
 const client = new QueryClient();
 
@@ -14,7 +15,9 @@ root.render(
   <QueryClientProvider client={client}>
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </Provider>
     </BrowserRouter>
   </QueryClientProvider>,

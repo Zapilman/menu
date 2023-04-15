@@ -1,18 +1,9 @@
 import { SVGProps } from 'react';
 
-export const SunIcon = ({ ...props }: SVGProps<SVGSVGElement>) => {
+export const MoonIcon = ({ ...props }: SVGProps<SVGSVGElement>) => {
   return (
     <svg {...props} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <title>moon [#1248]</title>
-      <desc>Created with Sketch.</desc>
-      <defs></defs>
-      <g
-        id="Page-1"
-        stroke="none"
-        stroke-width="1"
-        fill="none"
-        fill-rule="evenodd"
-      >
+      <g id="Page-1" stroke="none" strokeWidth="1" fill="none">
         <g
           id="Dribbble-Light-Preview"
           transform="translate(-220.000000, -2599.000000)"

@@ -8,7 +8,7 @@ import Button from '_UI/Button/Button';
 import CenterContainer from '_UI/CenterContainer/CenterContainer';
 
 import styles from './Header.module.scss';
-import { SunIcon } from 'src/assets/icons/Sun';
+import { LightDarkMode } from './LightDarkMode';
 
 const Header = () => {
   const count = useAppSelector(getSelectedDishes);
@@ -17,7 +17,7 @@ const Header = () => {
       <CenterContainer className={styles.header__content}>
         <RestaurantHeaderInfo />
         <div className={styles.actions}>
-          <SunIcon width={50} height={50} />
+          <LightDarkMode />
           <Button disabled>{count || 'Нічого не вибрано'}</Button>
           <LanguageSelect />
         </div>
