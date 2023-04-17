@@ -27,4 +27,6 @@ jobs:
       - name: Install deps
         run: yarn
       - name: Build App
-        run: yarn build
+        run: |
+          yarn build
+          echo "Hello"
