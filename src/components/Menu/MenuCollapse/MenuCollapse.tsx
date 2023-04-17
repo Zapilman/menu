@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { Collapse } from 'react-collapse';
-import { Link, NavLink, useLocation, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
+import cn from 'classnames';
 import { useSearchParam } from 'src/hooks/useSearchParam';
 
 import styles from './MenuCollapse.module.scss';
@@ -20,7 +21,7 @@ const MenuCollapse: FC<IMenuCollapseProps> = ({
         {headerText}
       </Button> */}
       <Link
-        className={classNames(styles.navBtn, {
+        className={cn(styles.navBtn, {
           [styles.active]: headerText === section,
         })}
         to={'/restaurant/menu' + `?section=${headerText}`}
