@@ -6,8 +6,18 @@ jobs:
     steps:
       - name: Get repository code
         uses: actions/checkout@v3
+
       - name: Install deps
         run: yarn install
+
+      - name: Cache Yarn packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Test app
         run: yarn typecheck
   lint:
@@ -15,8 +25,18 @@ jobs:
     steps:
       - name: Get repository code
         uses: actions/checkout@v3
+
       - name: Install deps
         run: yarn
+
+      - name: Cache Yarn packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Lint code
         run: yarn lint
   build:
@@ -25,8 +45,18 @@ jobs:
     steps:
       - name: Get repository code
         uses: actions/checkout@v3
+
       - name: Install deps
         run: yarn
+
+      - name: Cache Yarn packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Build App
         run: |
           yarn build
