@@ -1,12 +1,30 @@
-name: Demo Workflow
-on: workflow_dispatch
+name: Test
+on: push
 jobs:
-  print:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Print to console
-        run: echo Hello GH Actions!
-      - name: Print a few lines
-        run: |
-          echo First line
-          echo Second Line
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Install deps
+        run: yarn install
+      - name: Test app
+        run: yarn typecheck
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Install deps
+        run: yarn
+      - name: Lint code
+        run: yarn lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Install deps
+        run: yarn
+      - name: Build App
+        run: yarn build
