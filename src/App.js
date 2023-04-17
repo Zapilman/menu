@@ -14,6 +14,7 @@ const RestaurantMenuPage = React.lazy(() =>
 
 // if (matchMedia('(prefers-color-scheme: dark)').matches === true) {
 //   console.log('dark');
+// asdasd
 //   require('./styles/dark.css');
 // } else {
 //   console.log('light');
