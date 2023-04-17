@@ -1,6 +1,6 @@
 import React from 'react';
-import DishItem from './DishItem/DishItem';
 
+import DishItem from './DishItem/DishItem';
 import styles from './DishesList.module.scss';
 
 const DishesList = () => {

@@ -1,11 +1,11 @@
-import { axiosInstanse } from './axiosInstanse';
 import { TRestaurant } from '../types/Restaurant';
+import { axiosInstanse } from './axiosInstanse';
 
-type TGetRestaurantWithMenuResponse = {
+interface TGetRestaurantWithMenuResponse {
   _id: string;
   name: string;
-  menu: { _id: string; name: string }[];
-};
+  menu: Array<{ _id: string; name: string }>;
+}
 
 export const restaurantApi = {
   getRestaurant: async () => {

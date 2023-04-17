@@ -1,9 +1,10 @@
+import { Helmet } from 'react-helmet';
 import { Outlet } from 'react-router-dom';
+
 import Header from '_modules/Header/Header';
+import { useTheme } from 'src/context/theme';
 
 import styles from './Layout.module.scss';
-import { Helmet } from 'react-helmet';
-import { useTheme } from 'src/context/theme';
 
 const Layout = () => {
   const theme = useTheme();

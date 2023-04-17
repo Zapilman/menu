@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ContentSection from '../../../UI/ContentSection/ContentSection';
 
 const AboutRestaurant = () => {

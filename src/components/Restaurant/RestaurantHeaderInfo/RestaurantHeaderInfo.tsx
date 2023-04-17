@@ -1,5 +1,4 @@
 import ContentSection from '../../../UI/ContentSection/ContentSection';
-
 import styles from './RestaurantHeaderInfo.module.scss';
 
 const RestaurantHeaderInfo = () => {

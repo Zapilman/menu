@@ -1,8 +1,7 @@
-import classNames from 'classnames';
 import React, { FC } from 'react';
 import { Collapse } from 'react-collapse';
-import { Link } from 'react-router-dom';
-import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, NavLink, useLocation, useSearchParams } from 'react-router-dom';
+
 import { useSearchParam } from 'src/hooks/useSearchParam';
 
 import styles from './MenuCollapse.module.scss';

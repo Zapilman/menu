@@ -1,11 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { QueryClientProvider, QueryClient } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+
 import App from './App';
-import store from './store/store';
 import { ThemeProvider } from './context/theme';
+import store from './store/store';
 
 const client = new QueryClient();
 

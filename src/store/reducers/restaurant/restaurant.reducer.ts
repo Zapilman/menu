@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { TRestaurantInitialState } from './restaurant.types';
+
 import { getRestaurant } from './restaurant.thunk';
+import type { TRestaurantInitialState } from './restaurant.types';
 
 const initialState: TRestaurantInitialState = {
   restaurant: null,

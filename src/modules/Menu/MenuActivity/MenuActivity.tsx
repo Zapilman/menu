@@ -1,6 +1,6 @@
+import Button from '_UI/Button/Button';
 import { MenuSearch } from '_components/Menu';
 import { RestaurantDescription, RestaurantInfo } from '_components/Restaurant';
-import Button from '_UI/Button/Button';
 
 import styles from './MenuActivity.module.scss';
 

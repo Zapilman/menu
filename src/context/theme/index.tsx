@@ -4,6 +4,7 @@ import React, {
   SetStateAction,
   useEffect,
 } from 'react';
+
 import { ETheme } from './model';
 
 interface ThemeContextProps {

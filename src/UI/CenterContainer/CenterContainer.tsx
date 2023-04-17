@@ -1,4 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react';
+
 import cn from 'classnames';
 
 import styles from './CenterContainer.module.scss';

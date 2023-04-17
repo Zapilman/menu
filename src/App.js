@@ -1,12 +1,13 @@
-import './styles/style.css';
 import React from 'react';
-import RestaurantPreviewPage from './pages/RestaurantPreviewPage/RestaurantPreviewPage';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+
 import { Routes as RoutesPath } from './constants/routes';
+import { useTheme } from './context/theme';
+import Layout from './pages/Layout/Layout';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import RestaurantMenuPage from './pages/RestaurantMenuPage/RestaurantMenuPage';
-import Layout from './pages/Layout/Layout';
-import { useTheme } from './context/theme';
+import RestaurantPreviewPage from './pages/RestaurantPreviewPage/RestaurantPreviewPage';
+import './styles/style.css';
 
 // if (matchMedia('(prefers-color-scheme: dark)').matches === true) {
 //   console.log('dark');

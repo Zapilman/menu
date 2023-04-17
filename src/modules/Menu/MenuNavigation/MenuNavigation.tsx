@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
-import { restaurantApi } from 'src/api/restaurantApi';
+
 import MenuCollapse from '_components/Menu/MenuCollapse/MenuCollapse';
+import { restaurantApi } from 'src/api/restaurantApi';
 
 import styles from './MenuNavigation.module.scss';
 

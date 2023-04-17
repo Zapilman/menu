@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import cn from 'classnames';
 
-import styles from './DishItem.module.scss';
 import Button from '_UI/Button/Button';
 import { increment } from '_store/reducers/selectedDishes/selectedDishes.slice';
 import { useAppDispatch } from '_store/store';
+import cn from 'classnames';
+
+import styles from './DishItem.module.scss';
 
 const DishItem = () => {
   const [showFull, setShowFull] = useState<boolean>(false);

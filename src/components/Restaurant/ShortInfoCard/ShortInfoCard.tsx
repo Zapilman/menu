@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { IShortInfoCardProps } from './ShortInfoCard.types';
 
 const ShortInfoCard: FC<IShortInfoCardProps> = ({ title, text, icon }) => {

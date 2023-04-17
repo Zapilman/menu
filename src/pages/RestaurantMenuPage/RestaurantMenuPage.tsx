@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import MenuNavigation from '_modules/Menu/MenuNavigation/MenuNavigation';
-import MenuActivity from '_modules/Menu/MenuActivity/MenuActivity';
-import { useAppDispatch, useAppSelector } from '_store/store';
-import { getRestaurant } from '_store/reducers/restaurant/restaurant.thunk';
-import DishesList from '_modules/Menu/DishesList/DishesList';
-import { getRestaurantStatusSelector } from '_store/reducers/restaurant/restaurant.select';
+
 import CenterContainer from '_UI/CenterContainer/CenterContainer';
+import DishesList from '_modules/Menu/DishesList/DishesList';
+import MenuActivity from '_modules/Menu/MenuActivity/MenuActivity';
+import MenuNavigation from '_modules/Menu/MenuNavigation/MenuNavigation';
+import { getRestaurantStatusSelector } from '_store/reducers/restaurant/restaurant.select';
+import { getRestaurant } from '_store/reducers/restaurant/restaurant.thunk';
+import { useAppDispatch, useAppSelector } from '_store/store';
 
 const RestaurantMenuPage = () => {
   const dispatch = useAppDispatch();
