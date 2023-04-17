@@ -5,9 +5,12 @@ import { Routes as RoutesPath } from './constants/routes';
 import { useTheme } from './context/theme';
 import Layout from './pages/Layout/Layout';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import RestaurantMenuPage from './pages/RestaurantMenuPage/RestaurantMenuPage';
 import RestaurantPreviewPage from './pages/RestaurantPreviewPage/RestaurantPreviewPage';
 import './styles/style.css';
+
+const RestaurantMenuPage = React.lazy(() =>
+  import('./pages/RestaurantMenuPage/RestaurantMenuPage'),
+);
 
 // if (matchMedia('(prefers-color-scheme: dark)').matches === true) {
 //   console.log('dark');
@@ -19,7 +22,6 @@ import './styles/style.css';
 
 const App = () => {
   const theme = useTheme();
-  console.log(theme.theme);
   return (
     <div style={{ ...theme }}>
       <Routes>

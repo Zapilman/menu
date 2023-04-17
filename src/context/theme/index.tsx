@@ -25,6 +25,7 @@ export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
     //     console.log(module);
     //   },
     // );
+
     if (currentTheme === ETheme.DARK) {
       require('_styles/dark.css');
     }

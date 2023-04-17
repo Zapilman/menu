@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { Outlet } from 'react-router-dom';
 
@@ -13,12 +14,14 @@ const Layout = () => {
       <Helmet>
         <html data-theme={theme.themeType} />
       </Helmet>
-      <div className={styles.wrapper}>
-        <Header />
-        <main>
-          <Outlet context={{ otherKey: 1 }} />
-        </main>
-      </div>
+      <Suspense fallback={'loading...'}>
+        <div className={styles.wrapper}>
+          <Header />
+          <main>
+            <Outlet context={{ otherKey: 1 }} />
+          </main>
+        </div>
+      </Suspense>
     </>
   );
 };
