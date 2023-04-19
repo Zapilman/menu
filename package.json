@@ -10,6 +10,11 @@
     "lint:fix": "eslint --fix ./src",
     "typecheck": "npx tsc -p tsconfig.lint.json"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
+  },
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
@@ -49,6 +54,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.1",
+    "husky": "^8.0.3",
     "prettier": "^2.8.3",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
