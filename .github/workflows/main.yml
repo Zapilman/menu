@@ -63,6 +63,6 @@ jobs:
       - name: send telegram message
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: 6283254938
+          token: AAEO0bojqmhKeBwEd9xPFB9rYXTrbybT06g
           message: 'hello'
