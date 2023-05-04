@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ContentSection from '../../UI/ContentSection/ContentSection';
-import MenuOptions from '../../components/Menu/MenuOptions/MenuOptions';
-import AboutRestaurant from '../../components/Restaurant/AboutRestaurant/AboutRestaurant';
-import RestaurantHeaderInfo from '../../components/Restaurant/RestaurantHeaderInfo/RestaurantHeaderInfo';
+import ContentSection from '_UI/ContentSection/ContentSection';
+import { MenuOptions } from '_components/Menu';
+import { AboutRestaurant, RestaurantHeaderInfo } from '_components/Restaurant';
+
 import styles from './RestaurantInfo.module.scss';
 
 const RestaurantInfo = () => {
