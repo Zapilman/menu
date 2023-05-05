@@ -15,9 +15,6 @@
       "pre-push": "yarn lint"
     }
   },
-  "engines": {
-    "node": "16.13.1"
-  },
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
