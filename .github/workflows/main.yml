@@ -60,6 +60,13 @@ jobs:
       - name: Build App
         run: yarn build
 
+      - name: setup key
+        run: |
+          set -eu
+          mkdir "$HOME/.ssh"
+          echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/key"
+          chmod 600 "$HOME/.ssh/key"
+
       - name: send telegram message
         uses: appleboy/telegram-action@master
         with:
