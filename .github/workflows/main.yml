@@ -67,6 +67,9 @@ jobs:
           echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/key"
           chmod 600 "$HOME/.ssh/key"
 
+      - name: deploy
+        run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . ubuntu@zdorov-front:/var/www/kek
+
       - name: send telegram message
         uses: appleboy/telegram-action@master
         with:
