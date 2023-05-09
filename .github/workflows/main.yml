@@ -30,7 +30,7 @@ jobs:
           echo "$HOME/.ssh/free-aws-sshkey.pem"
 
       - name: deploy
-        run: cd dist && rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no" --archive --compress --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:/var/www/kek
+        run: cd dist && rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no" --archive --compress --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:www/kek
         #run: cd $HOME/.ssh && ssh -i free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/was"
 
       - name: send telegram message
