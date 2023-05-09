@@ -31,7 +31,7 @@ jobs:
 
       - name: deploy
         run: |
-          ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no "sudo mkdir -p www/kek"
+          ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no -tt "sudo mkdir -p www/kek"
           cd dist
           rsync --archive --compress --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:www/kek
         #run: cd $HOME/.ssh && ssh -i free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/was"
