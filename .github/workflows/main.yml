@@ -61,12 +61,16 @@ jobs:
         run: yarn build
 
       - name: setup key
-        run: |
-          set -eu
-          mkdir "$HOME/.ssh"
-          echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/key"
-          chmod 600 "$HOME/.ssh/key"
-          echo "$HOME/.ssh/key"
+        run: set -eu
+
+      - name: setup key
+        run: mkdir "$HOME/.ssh"
+      - name: setup key
+        run: echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/key"
+      - name: setup key
+        run: chmod 600 "$HOME/.ssh/key"
+      - name: setup key
+        run: echo "$HOME/.ssh/key"
 
       - name: deploy
         run: cd dist && rsync -e "ssh -p $HOME/.ssh/key -o StrictHostKeyChecking=no" -avz --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:/var/www/kek
