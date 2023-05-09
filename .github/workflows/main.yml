@@ -68,7 +68,7 @@ jobs:
           chmod 600 "$HOME/.ssh/key"
 
       - name: deploy
-        run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . ubuntu@zdorov-front:/var/www/kek
+        run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:/var/www/kek
 
       - name: send telegram message
         uses: appleboy/telegram-action@master
