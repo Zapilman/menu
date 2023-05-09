@@ -33,7 +33,7 @@ jobs:
         run: |
           ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/kek"
           cd dist
-          rsync -avz --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:www/kek
+          rsync -e "ssh" -avz --rsync-path="sudo rsync" rsync --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:www/kek
         #run: cd $HOME/.ssh && ssh -i free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/was"
 
       - name: send telegram message
