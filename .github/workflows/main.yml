@@ -22,20 +22,16 @@ jobs:
         run: yarn build
 
       - name: setup key
-        run: set -eu
-
-      - name: setup key
-        run: mkdir "$HOME/.ssh"
-      - name: setup key
-        run: echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/free-aws-sshkey.pem"
-      - name: setup key
-        run: chmod 400 "$HOME/.ssh/free-aws-sshkey.pem"
-      - name: setup key
-        run: echo "$HOME/.ssh/free-aws-sshkey.pem"
+        run: |
+          set -eu
+          mkdir "$HOME/.ssh"
+          echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/free-aws-sshkey.pem"
+          chmod 400 "$HOME/.ssh/free-aws-sshkey.pem"
+          echo "$HOME/.ssh/free-aws-sshkey.pem"
 
       - name: deploy
-        #run: cd dist && rsync -e "ssh -p $HOME/.ssh/key -o StrictHostKeyChecking=no" -avz --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:/var/www/kek
-        run: cd $HOME/.ssh && ssh -i free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/was"
+        run: cd dist && rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no" --archive --compress --delete . ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com:/var/www/kek
+        #run: cd $HOME/.ssh && ssh -i free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/was"
 
       - name: send telegram message
         uses: appleboy/telegram-action@master
