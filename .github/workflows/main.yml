@@ -31,9 +31,9 @@ jobs:
 
       - name: deploy
         run: |
-          ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-3-75-97-228.eu-central-1.compute.amazonaws.com "sudo mkdir -p serGay"
+          ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-3-75-97-228.eu-central-1.compute.amazonaws.com "mkdir -p gay"
           cd dist
-          rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem" -avz --delete . ubuntu@ec2-3-75-97-228.eu-central-1.compute.amazonaws.com:serGay
+          rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem" --archive --compress --delete . ubuntu@ec2-3-75-97-228.eu-central-1.compute.amazonaws.com:gay
       #run: cd $HOME/.ssh && ssh -i free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/was"
       - name: send telegram message
         uses: appleboy/telegram-action@master
