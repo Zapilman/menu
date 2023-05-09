@@ -27,15 +27,14 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/free-aws-sshkey.pem"
           chmod 400 "$HOME/.ssh/free-aws-sshkey.pem"
-          echo "$HOME/.ssh/free-aws-sshkey.pem"
+          eval $(ssh-agent -s)
 
       - name: deploy
         run: |
           ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-3-75-97-228.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/pupa"
           cd dist
           rsync -avz --rsync-path="sudo rsync" rsync --delete . ubuntu@ec2-3-75-97-228.eu-central-1.compute.amazonaws.com:www/kek
-        #run: cd $HOME/.ssh && ssh -i free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/was"
-
+      #run: cd $HOME/.ssh && ssh -i free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-58-206-218.eu-central-1.compute.amazonaws.com "sudo mkdir -p www/was"
       - name: send telegram message
         uses: appleboy/telegram-action@master
         with:
