@@ -22,20 +22,27 @@ jobs:
         run: yarn typecheck
   lint:
     runs-on: ubuntu-latest
+    extends:
+      # Наследуем шаги из действия test
+      from: test
+      # Не включаем последний шаг (Run tests)
+      # в действие deploy
+      except:
+        - name: Test app
     steps:
-      - name: Get repository code
-        uses: actions/checkout@v3
+      # - name: Get repository code
+      #   uses: actions/checkout@v3
 
-      - name: Install deps
-        run: yarn
+      # - name: Install deps
+      #   run: yarn
 
-      - name: Cache Yarn packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+      # - name: Cache Yarn packages
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ~/.cache/yarn
+      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-yarn-
 
       - name: Lint code
         run: yarn lint
