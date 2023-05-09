@@ -68,7 +68,7 @@ jobs:
       - name: setup key
         run: echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/key"
       - name: setup key
-        run: chmod 600 "$HOME/.ssh/key"
+        run: chmod 400 "$HOME/.ssh/key"
       - name: setup key
         run: echo "$HOME/.ssh/key"
 
