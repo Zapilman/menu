@@ -46,7 +46,7 @@ jobs:
         run: |
           ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-18-185-59-212.eu-central-1.compute.amazonaws.com "sudo mkdir -p /var/www/${{ env.BRANCH_NAME }}"
           cd dist
-          rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem" --archive --compress --delete . ubuntu@ec2-18-185-59-212.eu-central-1.compute.amazonaws.com:/var/www/${{ env.BRANCH_NAME }}
+          rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem" --rsync-path="sudo rsync" --archive --compress --delete . ubuntu@ec2-18-185-59-212.eu-central-1.compute.amazonaws.com:/var/www/${{ env.BRANCH_NAME }}
 
       - name: send telegram message
         uses: appleboy/telegram-action@master
