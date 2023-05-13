@@ -18,7 +18,7 @@ const MenuNavigation = () => {
 
   return (
     <div className={styles.wrapper}>
-      {data.menu.map((menuItem) => {
+      {/* {data.menu.map((menuItem) => {
         return (
           <MenuCollapse
             key={menuItem._id}
@@ -29,7 +29,7 @@ const MenuNavigation = () => {
             }}
           />
         );
-      })}
+      })} */}
     </div>
   );
 };
