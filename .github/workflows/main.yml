@@ -59,4 +59,6 @@ jobs:
 
             Repository: ${{ github.repository }}
 
+            Link: ${{ env.BRANCH_NAME }}.zdorov-front.com
+
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}

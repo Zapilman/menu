@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstanse = axios.create({
-  baseURL: 'http://127.0.0.1:8080/api',
+  baseURL: 'https://www.zdorov-front.com/api',
   timeout: 20000,
   headers: {
     'Content-type': 'application/json',
