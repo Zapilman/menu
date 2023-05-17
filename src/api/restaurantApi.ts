@@ -1,10 +1,12 @@
+import type { TMenu } from 'src/types/Menu';
+
 import { TRestaurant } from '../types/Restaurant';
 import { axiosInstanse } from './axiosInstanse';
 
 interface TGetRestaurantWithMenuResponse {
   _id: string;
   name: string;
-  menu: Array<{ _id: string; name: string }>;
+  menu: TMenu[];
 }
 
 export const restaurantApi = {

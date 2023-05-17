@@ -8,7 +8,7 @@ const RestaurantInfo = () => {
   const { address, name } = useAppSelector(getRestaurantSelector);
 
   return (
-    <div>
+    <div style={{ marginTop: '20px' }}>
       <span>Інформація про заклад</span>
       <ShortInfoCard title="Робочий час:" text={name} icon={<Clock />} />
       <ShortInfoCard title="Адреса:" text={address} icon={<Clock />} />

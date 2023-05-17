@@ -1,32 +1,45 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import MenuCollapse from '_components/Menu/MenuCollapse/MenuCollapse';
+import { getMenuNavigationSelector, setMenu } from '_store/reducers/menu';
+import { useAppDispatch, useAppSelector } from '_store/store';
 import { restaurantApi } from 'src/api/restaurantApi';
 
 import styles from './MenuNavigation.module.scss';
 
 const MenuNavigation = () => {
-  const [open, setOpen] = useState(false);
   const { data, isLoading } = useQuery(
     'restaurantWithMenu',
     restaurantApi.getRestaurantWithMenu,
   );
+  const dispatch = useAppDispatch();
+  const menuNavigation = useAppSelector(getMenuNavigationSelector);
+  const [selectedTab, setSelectedTab] = useState<string>('');
+
+  useEffect(() => {
+    if (data) {
+      dispatch(setMenu(data.menu));
+    }
+  }, [data]);
+
   if (isLoading) {
     return <div>loading</div>;
   }
 
   return (
     <div className={styles.wrapper}>
-      {data.menu.map((menuItem) => {
+      <span>Меню:</span>
+      {menuNavigation.map((menuItem) => {
         return (
           <MenuCollapse
-            key={menuItem._id}
-            open={open}
+            key={menuItem.id}
+            open={selectedTab === menuItem.id}
             headerText={menuItem.name}
             onCollapseHeaderClick={() => {
-              setOpen((prev) => !prev);
+              setSelectedTab(menuItem.id);
             }}
+            categories={menuItem.categories}
           />
         );
       })}

@@ -1,6 +1,5 @@
 .dishWrapper {
   position: relative;
-  margin-top: 40px;
 
   .dish {
     transition: all 0.3s ease;
@@ -18,7 +17,6 @@
       }
 
       & p {
-        max-height: 40px;
         margin-top: 4px;
         font-size: 14px;
         line-height: 20px;
@@ -26,7 +24,6 @@
 
       & span {
         font-size: 14px;
-        line-height: 20px;
       }
     }
 
@@ -41,9 +38,6 @@
         width: 100%;
       }
     }
-
-    padding-bottom: 40px;
-    border-bottom: 1px solid black;
   }
   .dishImage {
     position: absolute;

@@ -9,7 +9,7 @@ const MenuActivity = () => {
     <div className={styles.wrapper}>
       <MenuSearch />
       <RestaurantInfo />
-      <Button>Надіслати відгуки</Button>
+      <Button classNames={styles.sendButton}>Надіслати відгуки</Button>
       <RestaurantDescription />
     </div>
   );

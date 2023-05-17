@@ -11,15 +11,9 @@ import './styles/style.css';
 const RestaurantMenuPage = React.lazy(() =>
   import('./pages/RestaurantMenuPage/RestaurantMenuPage'),
 );
-
-// if (matchMedia('(prefers-color-scheme: dark)').matches === true) {
-//   console.log('dark');
-// asdasd
-//   require('./styles/dark.css');
-// } else {
-//   console.log('light');
-//   require('./styles/light.css');
-// }
+const FeedBackPage = React.lazy(() =>
+  import('./pages/FeedBackPage/FeedBackPage'),
+);
 
 const App = () => {
   const theme = useTheme();
@@ -27,13 +21,19 @@ const App = () => {
     <div style={{ ...theme }}>
       <Routes>
         <Route path={RoutesPath.MAIN} element={<NotFoundPage />} />
+
+        <Route element={<Layout />}>
+          <Route
+            path={RoutesPath.RESTAURANT_MENU}
+            element={<RestaurantMenuPage />}
+          />
+          <Route path={RoutesPath.FEEDBACK} element={<FeedBackPage />} />
+        </Route>
+
         <Route
           path={RoutesPath.RESTAURANT_PREVIEW}
           element={<RestaurantPreviewPage />}
         />
-        <Route path={RoutesPath.RESTAURANT_MENU} element={<Layout />}>
-          <Route index element={<RestaurantMenuPage />} />
-        </Route>
         <Route path={RoutesPath.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
     </div>

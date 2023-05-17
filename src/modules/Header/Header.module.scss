@@ -4,17 +4,30 @@
   width: 100%;
   padding: 10px 0;
   position: fixed;
-  z-index: 100;
-
-  &__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  z-index: 2;
 
   .actions {
     display: flex;
     column-gap: 10px;
     align-items: center;
+  }
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .headerNavigation {
+    margin-top: 20px;
+
+    .headerNavigationLink {
+      padding: 0 10px;
+      color: var(--theme-colors-300);
+    }
+
+    .activeLink {
+      color: red;
+    }
   }
 }

@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import { FC, useState } from 'react';
 import { Collapse } from 'react-collapse';
 import { Link } from 'react-router-dom';
 
+import Button from '_UI/Button/Button';
 import cn from 'classnames';
 import { useSearchParam } from 'src/hooks/useSearchParam';
 
@@ -12,29 +13,33 @@ const MenuCollapse: FC<IMenuCollapseProps> = ({
   headerText,
   onCollapseHeaderClick,
   open,
+  categories,
 }) => {
   const section = useSearchParam('section');
 
   return (
     <div>
-      {/* <Button onClick={onCollapseHeaderClick} classNames={styles.navBtn}>
+      <div onClick={onCollapseHeaderClick} className={styles.navBtn}>
         {headerText}
-      </Button> */}
-      <Link
-        className={cn(styles.navBtn, {
-          [styles.active]: headerText === section,
-        })}
-        to={'/restaurant/menu' + `?section=${headerText}`}
-        onClick={onCollapseHeaderClick}
-      >
-        {headerText}
-      </Link>
-      <Collapse isOpened={open}>
-        {/* <ul className={styles.optionWrapper}>
-          {options.map((option, index) => {
-            return <li key={index}>{option}</li>;
+      </div>
+
+      <Collapse isOpened={open} theme={{ collapse: styles.collapse }}>
+        <ul className={styles.optionWrapper}>
+          {categories.map((category, index) => {
+            return (
+              <li key={category}>
+                <a
+                  className={cn(styles.navBtn, {
+                    [styles.active]: headerText === section,
+                  })}
+                  href={`#${category}`}
+                >
+                  {category}
+                </a>
+              </li>
+            );
           })}
-        </ul> */}
+        </ul>
       </Collapse>
     </div>
   );

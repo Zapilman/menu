@@ -4,4 +4,10 @@
   }
 
   background-color: var(--main-background);
+  min-height: 100vh;
+
+  main {
+    min-height: calc(100vh - 110px);
+    padding-top: 110px;
+  }
 }

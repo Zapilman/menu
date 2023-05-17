@@ -1,2 +1,23 @@
 .listWrapper {
+  margin-bottom: 24px;
+}
+
+.listTitle {
+  font-size: 24px;
+  font-weight: 800;
+  white-space: normal;
+  margin-bottom: 12px;
+}
+
+.list {
+  border: 1px solid var(--theme-colors-300);
+  border-radius: 8px;
+
+  .dishWrapper {
+    padding: 16px;
+  }
+
+  .dishWrapper:not(:first-child) {
+    border-top: 1px solid var(--theme-colors-300);
+  }
 }

@@ -26,6 +26,7 @@ const Button: FC<PropsWithChildren<Props>> = ({
         classNames,
       )}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

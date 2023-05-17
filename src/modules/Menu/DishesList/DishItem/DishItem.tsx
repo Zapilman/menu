@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
 import Button from '_UI/Button/Button';
-import { increment } from '_store/reducers/selectedDishes/selectedDishes.slice';
+import { toggleSelectedDish } from '_store/reducers/selectedDishes';
 import { useAppDispatch } from '_store/store';
 import cn from 'classnames';
+import { TDish } from 'src/types/Menu';
 
 import styles from './DishItem.module.scss';
 
-const DishItem = () => {
+const DishItem = ({ dish }: { dish: TDish }) => {
   const [showFull, setShowFull] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
@@ -20,21 +21,16 @@ const DishItem = () => {
             setShowFull((prev) => !prev);
           }}
         >
-          <h4>
-            Один чебурек з яловичиною (або бараниною, сиром, грибами, тощо)
-          </h4>
-          <p>
-            Чебурек з яловичиною (або бараниною, бринзою, сиром, грибами).
-            Подається з йогуртовим соусом
-          </p>
-          <span>110 г</span>
+          <h4>{dish.name}</h4>
+          <p>{dish.description}</p>
+          <span>{dish.weight} г</span>
         </div>
         <Button
           onClick={() => {
-            dispatch(increment());
+            dispatch(toggleSelectedDish(dish));
           }}
         >
-          53 ₴
+          {dish.price} ₴
         </Button>
       </div>
       <img
@@ -42,8 +38,8 @@ const DishItem = () => {
         onClick={() => {
           setShowFull((prev) => !prev);
         }}
-        src="https://docs-s2p.s3.eu-west-1.amazonaws.com/menu-prod/dish-34246.jpg?t=1661882834921"
-        alt="Один чебурек з яловичиною (або бараниною, сиром, грибами, тощо)"
+        src={dish.photo}
+        alt={dish.name}
       />
     </div>
   );

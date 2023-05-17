@@ -17,15 +17,13 @@ export const ThemeContext = React.createContext<ThemeContextProps>({
 } as ThemeContextProps);
 
 export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = React.useState<ETheme>(ETheme.LIGHT);
+  const [currentTheme, setCurrentTheme] = React.useState<ETheme>(
+    matchMedia('(prefers-color-scheme: dark)').matches
+      ? ETheme.DARK
+      : ETheme.LIGHT,
+  );
 
   useEffect(() => {
-    // import(/* webpackMode: "lazy-once" */ 'src/styles/dark.css').then(
-    //   (module) => {
-    //     console.log(module);
-    //   },
-    // );
-
     if (currentTheme === ETheme.DARK) {
       require('_styles/dark.css');
     }
