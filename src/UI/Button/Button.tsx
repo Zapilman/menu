@@ -8,6 +8,7 @@ interface Props {
   disabled?: boolean;
   onClick?: VoidFunction;
   classNames?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button: FC<PropsWithChildren<Props>> = ({
@@ -15,6 +16,7 @@ const Button: FC<PropsWithChildren<Props>> = ({
   disabled,
   onClick,
   classNames,
+  type = 'button',
 }) => {
   return (
     <button
@@ -27,6 +29,7 @@ const Button: FC<PropsWithChildren<Props>> = ({
       )}
       onClick={onClick}
       disabled={disabled}
+      type={type}
     >
       {children}
     </button>

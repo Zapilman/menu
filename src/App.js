@@ -1,18 +1,20 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import Layout from 'src/pages/Layout/Layout';
+import NotFoundPage from 'src/pages/NotFoundPage/NotFoundPage';
+import RestaurantPreviewPage from 'src/pages/RestaurantPreviewPage/RestaurantPreviewPage';
+
 import { Routes as RoutesPath } from './constants/routes';
 import { useTheme } from './context/theme';
-import Layout from './pages/Layout/Layout';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import RestaurantPreviewPage from './pages/RestaurantPreviewPage/RestaurantPreviewPage';
+import './i18n';
 import './styles/style.css';
 
 const RestaurantMenuPage = React.lazy(() =>
-  import('./pages/RestaurantMenuPage/RestaurantMenuPage'),
+  import('src/pages/RestaurantMenuPage/RestaurantMenuPage'),
 );
 const FeedBackPage = React.lazy(() =>
-  import('./pages/FeedBackPage/FeedBackPage'),
+  import('src/pages/FeedBackPage/FeedBackPage'),
 );
 
 const App = () => {

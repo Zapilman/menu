@@ -6,7 +6,7 @@ import styles from './CenterContainer.module.scss';
 
 interface Props {
   className?: string;
-  size?: 'lg' | 'md';
+  size?: 'lg' | 'md' | 'sm' | 'xs';
 }
 
 const CenterContainer: FC<PropsWithChildren<Props>> = ({
@@ -18,6 +18,10 @@ const CenterContainer: FC<PropsWithChildren<Props>> = ({
     switch (size) {
       case 'md':
         return '980px';
+      case 'sm':
+        return '720px';
+      case 'xs':
+        return '540px';
       default:
         return '1200px';
     }

@@ -1,5 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Button from '_UI/Button/Button';
 import CenterContainer from '_UI/CenterContainer/CenterContainer';
@@ -16,6 +17,7 @@ const Header = () => {
   const history = useNavigate();
   const { pathname } = useLocation();
   const count = useAppSelector(getSelectedDishesCount);
+  const { t } = useTranslation();
 
   return (
     <header className={styles.header}>
@@ -44,7 +46,7 @@ const Header = () => {
               })
             }
           >
-            Меню
+            {t('menu')}
           </NavLink>
           <NavLink
             to={'/feedback'}
@@ -54,7 +56,7 @@ const Header = () => {
               })
             }
           >
-            Залишити відгук
+            {t('sendFeedBack')}
           </NavLink>
         </nav>
       </CenterContainer>

@@ -1,0 +1,17 @@
+.filled {
+  svg {
+    color: yellow;
+  }
+}
+.empty {
+  svg {
+    color: grey;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}

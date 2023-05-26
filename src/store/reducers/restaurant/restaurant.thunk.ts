@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { restaurantApi } from 'src/api/restaurantApi';
+import API from 'src/api';
 
-// eslint-disable-next-line @typescript-eslint/promise-function-async
-export const getRestaurant = createAsyncThunk('getRestaurant', () => {
-  return restaurantApi.getRestaurant();
+export const getRestaurant = createAsyncThunk('getRestaurant', async () => {
+  return await API.Restaurant.getRestaurant();
 });
