@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import CenterContainer from '_UI/CenterContainer/CenterContainer';
 import Loader from '_UI/Loader/Loader';
