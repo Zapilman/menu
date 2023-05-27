@@ -1,6 +1,10 @@
 **/dist
 node_modules
 **/node_modules
+stats
+stats.json
+/stats.json
+**/stats.json
 
 mongo-data-4.4
 
