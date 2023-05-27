@@ -1,18 +1,21 @@
 import { FC, PropsWithChildren, useEffect } from 'react';
 
 import Portal from '_UI/Portal/Portal';
+import cn from 'classnames';
 
 import styles from './OverlayingPopup.module.scss';
 
 interface IOverlayingPopupProps {
   isOpen?: boolean;
   onClose?: () => void;
+  className?: string;
 }
 
 const OverlayingPopup: FC<PropsWithChildren<IOverlayingPopupProps>> = ({
   children,
   isOpen,
   onClose,
+  className,
 }) => {
   if (!isOpen) {
     return null;
@@ -27,7 +30,7 @@ const OverlayingPopup: FC<PropsWithChildren<IOverlayingPopupProps>> = ({
 
   return (
     <Portal>
-      <div className={styles.modal} role="dialog">
+      <div className={cn(styles.modal, className)} role="dialog">
         <div
           className={styles.overlay}
           role="button"

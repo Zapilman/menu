@@ -5,6 +5,7 @@
 
   background-color: var(--main-background);
   min-height: 100vh;
+  position: relative;
 
   main {
     min-height: calc(100vh - 110px);

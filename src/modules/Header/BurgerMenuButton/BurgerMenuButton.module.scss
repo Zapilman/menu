@@ -1,0 +1,23 @@
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.dash {
+  height: 2px;
+  width: 20px;
+  background-color: black;
+
+  &:not(:last-child) {
+    margin-bottom: 3px;
+  }
+}
+
+.buttonWrapper {
+  padding: 0;
+  width: 48px;
+  height: 48px;
+}

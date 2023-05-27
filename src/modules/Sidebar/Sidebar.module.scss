@@ -1,0 +1,71 @@
+.sidebar {
+  width: 200px;
+  background-color: white;
+  height: 100%;
+
+  transition: transform 300ms;
+  animation: fadeIn 300ms;
+  z-index: 3;
+  position: fixed;
+}
+
+.sidebar_fadeOut {
+  transition: transform 300ms;
+  animation: fadeOut 300ms forwards;
+}
+
+.sidebarOutside {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  overflow: hidden;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  animation: appear 300ms forwards;
+}
+
+.sidebarOutside_disappear {
+  transition: opacity 300ms;
+  animation: disappear 300ms forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200px);
+  }
+}

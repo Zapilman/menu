@@ -10,6 +10,7 @@ import { getSelectedDishesCount } from '_store/reducers/selectedDishes/selectedD
 import { useAppSelector } from '_store/store';
 import classNames from 'classnames';
 
+import BurgerMenuButton from './BurgerMenuButton/BurgerMenuButton';
 import styles from './Header.module.scss';
 import { LightDarkMode } from './LightDarkMode';
 
@@ -35,8 +36,10 @@ const Header = () => {
               {count || 'Нічого не вибрано'}
             </Button>
             <LanguageSelect />
+            <BurgerMenuButton />
           </div>
         </div>
+
         <nav className={styles.headerNavigation}>
           <NavLink
             to={'/restaurant/menu'}
