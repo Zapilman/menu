@@ -29,7 +29,7 @@ const CenterContainer: FC<PropsWithChildren<Props>> = ({
 
   return (
     <div
-      style={{ width: getContainerWidth() }}
+      style={{ maxWidth: getContainerWidth() }}
       className={cn(styles.container, className)}
     >
       {children}

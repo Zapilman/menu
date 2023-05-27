@@ -11,6 +11,8 @@ import { getRestaurantStatusSelector } from '_store/reducers/restaurant/restaura
 import { getRestaurant } from '_store/reducers/restaurant/restaurant.thunk';
 import { useAppDispatch, useAppSelector } from '_store/store';
 
+import styles from './RestaurantMenuPage.module.scss';
+
 const RestaurantMenuPage = () => {
   const dispatch = useAppDispatch();
   const status = useAppSelector(getRestaurantStatusSelector);
@@ -28,18 +30,9 @@ const RestaurantMenuPage = () => {
       <CenterContainer size="lg">
         <img
           src="https://prod-choiceqr-media.s3.eu-central-1.amazonaws.com/prod-eat-chinahid/thumbnail_EiVgDHH-bJQcIFK-vyHLSof_B-t-V.jpeg"
-          style={{ width: '100%', borderRadius: 20 }}
+          className={styles.mainImage}
         />
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '300px 1fr 300px',
-            gridTemplateRows: 'max-content',
-            columnGap: '30px',
-            marginTop: '30px',
-            position: 'relative',
-          }}
-        >
+        <div className={styles.menuGrid}>
           <MenuNavigation />
           <DishesList />
           <MenuActivity />
