@@ -1,10 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 
 import MenuCollapse from '_components/Menu/MenuCollapse/MenuCollapse';
-import { getMenuNavigationSelector, setMenu } from '_store/reducers/menu';
+import {
+  getMenuNavigationSelector,
+  setMenu,
+  updateMenu,
+} from '_store/reducers/menu';
+import { getMenuSelector } from '_store/reducers/menu/menu.select';
 import { useAppDispatch, useAppSelector } from '_store/store';
+import API from 'src/api';
 import { restaurantApi } from 'src/api/restaurantApi';
+import { useSearchParam } from 'src/hooks/useSearchParam';
+import { TMenu } from 'src/types/Menu';
 
 import styles from './MenuNavigation.module.scss';
 
@@ -15,7 +23,17 @@ const MenuNavigation = () => {
   );
   const dispatch = useAppDispatch();
   const menuNavigation = useAppSelector(getMenuNavigationSelector);
-  const [selectedTab, setSelectedTab] = useState<string>('');
+  const section = useSearchParam('section');
+  const activeMenu = useAppSelector(getMenuSelector(section));
+
+  useEffect(() => {
+    (async () => {
+      if (!activeMenu.categories) {
+        const fullMenu = await API.Menu.getMenu<TMenu>(activeMenu._id);
+        dispatch(updateMenu(fullMenu));
+      }
+    })();
+  }, [section, activeMenu]);
 
   useEffect(() => {
     if (data) {
@@ -34,12 +52,8 @@ const MenuNavigation = () => {
         return (
           <MenuCollapse
             key={menuItem.id}
-            open={selectedTab === menuItem.id}
             headerText={menuItem.name}
-            onCollapseHeaderClick={() => {
-              setSelectedTab(menuItem.id);
-            }}
-            categories={menuItem.categories}
+            categories={activeMenu?.categories}
           />
         );
       })}

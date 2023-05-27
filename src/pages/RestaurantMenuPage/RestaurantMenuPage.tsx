@@ -14,8 +14,6 @@ import { useAppDispatch, useAppSelector } from '_store/store';
 const RestaurantMenuPage = () => {
   const dispatch = useAppDispatch();
   const status = useAppSelector(getRestaurantStatusSelector);
-  const { pathname } = useLocation();
-  console.log(`${pathname}/${1}`);
 
   useEffect(() => {
     dispatch(getRestaurant());
@@ -29,7 +27,7 @@ const RestaurantMenuPage = () => {
     <>
       <CenterContainer size="lg">
         <img
-          src="https://prod-choiceqr-media.s3.eu-central-1.amazonaws.com/prod-eat-chinahid/UgXVIGk-GMmTbUL-Xqfyrpt.jpeg"
+          src="https://prod-choiceqr-media.s3.eu-central-1.amazonaws.com/prod-eat-chinahid/thumbnail_EiVgDHH-bJQcIFK-vyHLSof_B-t-V.jpeg"
           style={{ width: '100%', borderRadius: 20 }}
         />
         <div

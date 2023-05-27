@@ -7,4 +7,4 @@ export {
   getMenuNavigationSelector,
 } from './menu.select';
 
-export const { setMenu } = menuSlice.actions;
+export const { setMenu, updateMenu } = menuSlice.actions;

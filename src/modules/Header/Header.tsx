@@ -15,7 +15,7 @@ import { LightDarkMode } from './LightDarkMode';
 
 const Header = () => {
   const history = useNavigate();
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const count = useAppSelector(getSelectedDishesCount);
   const { t } = useTranslation();
 
@@ -28,7 +28,7 @@ const Header = () => {
             <LightDarkMode />
             <Button
               onClick={() => {
-                history(pathname + '/selected-dishes');
+                history(pathname + '/selected-dishes' + search);
               }}
               disabled={count === 0}
             >

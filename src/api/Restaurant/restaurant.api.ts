@@ -22,10 +22,6 @@ export class RestaurantApi {
       this.route + '/640c8c1f1c27bb22df6b2063/menu',
       { limit: 5 },
     );
-    console.log(
-      '🚀 ~ file: restaurant.api.ts:25 ~ RestaurantApi ~ getRestaurantWithMenu ~ restaurant:',
-      restaurant,
-    );
     return restaurant;
   }
 }

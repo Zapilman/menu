@@ -15,6 +15,14 @@ export const menuSlice = createSlice({
     setMenu: (state, action: PayloadAction<TMenu[]>) => {
       state.menu = action.payload;
     },
+    updateMenu: (state, action: PayloadAction<TMenu>) => {
+      state.menu = state.menu.map((menuItem) => {
+        if (menuItem._id === action.payload._id) {
+          return action.payload;
+        }
+        return menuItem;
+      });
+    },
   },
 });
 

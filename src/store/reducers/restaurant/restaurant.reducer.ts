@@ -5,7 +5,7 @@ import type { TRestaurantInitialState } from './restaurant.types';
 
 const initialState: TRestaurantInitialState = {
   restaurant: null,
-  status: 'idle',
+  status: 'pending',
 };
 
 export const restaurantSlice = createSlice({
