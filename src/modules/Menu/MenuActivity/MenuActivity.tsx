@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '_UI/Button/Button';
@@ -8,6 +9,7 @@ import styles from './MenuActivity.module.scss';
 
 const MenuActivity = () => {
   const navigate = useNavigate();
+  const { t: translate } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <MenuSearch />
@@ -18,7 +20,7 @@ const MenuActivity = () => {
         }}
         classNames={styles.sendButton}
       >
-        Надіслати відгуки
+        {translate('send review')}
       </Button>
       <RestaurantDescription />
     </div>
