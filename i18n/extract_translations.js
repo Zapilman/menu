@@ -18,7 +18,7 @@ const files = glob.sync(['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'], {
 
 files.forEach((file) => {
   const content = fs.readFileSync(file, 'utf8');
-  const regex = /translate\(['"](.+?)['"]/g; // Пользовательский регулярный выражение для поиска строк переводов
+  const regex = /translate\(['"](.+?)['"]/g;
   let match;
 
   while ((match = regex.exec(content)) !== null) {
