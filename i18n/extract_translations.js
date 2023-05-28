@@ -26,3 +26,6 @@ files.forEach((file) => {
     translations[translationKey] = translationKey;
   }
 });
+const jsonContent = JSON.stringify(translations, null, 2);
+fs.writeFileSync('translations.json', jsonContent, 'utf8');
+console.log(translations);

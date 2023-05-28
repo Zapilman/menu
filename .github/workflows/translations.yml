@@ -31,16 +31,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Build App
-        run: yarn build
+      # - name: Build App
+      #   run: yarn build
 
       - name: Install Lokalise Cli
         run: curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
 
       - name: Get translations
-        run: |
-          cd .\i18n
-          node extract_translations.js
+        run: node .\i18n\extract_translations.js
 
       - name: Upload translations
         run: ./bin/lokalise2 --token b319d056c11b5779919044529c75d9c3db60a45d file upload --file translations.json --lang-iso en --project-id 4479144264646922bb4ee1.51100677
