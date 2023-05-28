@@ -18,7 +18,7 @@ const Header = () => {
   const history = useNavigate();
   const { pathname, search } = useLocation();
   const count = useAppSelector(getSelectedDishesCount);
-  const { t } = useTranslation();
+  const { t: translate } = useTranslation();
 
   return (
     <header className={styles.header}>
@@ -49,7 +49,7 @@ const Header = () => {
               })
             }
           >
-            {t('menu')}
+            {translate('menu')}
           </NavLink>
           <NavLink
             to={'/feedback'}
@@ -59,7 +59,7 @@ const Header = () => {
               })
             }
           >
-            {t('sendFeedBack')}
+            {translate('sendFeedBack')}
           </NavLink>
         </nav>
       </CenterContainer>

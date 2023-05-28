@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*", "custom.d.ts"],
+  "include": ["src/**/*", "custom.d.ts", "i18n"],
   "exclude": ["./dist/", "node_modules"],
   "compilerOptions": {
     "outDir": "./dist/",

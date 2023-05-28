@@ -5,9 +5,9 @@ import Layout from 'src/pages/Layout/Layout';
 import NotFoundPage from 'src/pages/NotFoundPage/NotFoundPage';
 import RestaurantPreviewPage from 'src/pages/RestaurantPreviewPage/RestaurantPreviewPage';
 
+import '../i18n';
 import { Routes as RoutesPath } from './constants/routes';
 import { useTheme } from './context/theme';
-import './i18n';
 import './styles/style.css';
 
 const RestaurantMenuPage = React.lazy(() =>
