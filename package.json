@@ -10,11 +10,7 @@
     "lint:fix": "eslint --fix ./src",
     "typecheck": "npx tsc -p tsconfig.lint.json"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn lint"
-    }
-  },
+
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
