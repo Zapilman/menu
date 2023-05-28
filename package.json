@@ -16,6 +16,11 @@
     }
   },
   "type": "module",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
