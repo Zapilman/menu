@@ -1,64 +1,64 @@
-name: Test
-on: push
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get repository code
-        uses: actions/checkout@v3
+# name: Test
+# on: push
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Get repository code
+#         uses: actions/checkout@v3
 
-      - name: Get branch name
-        run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+#       - name: Get branch name
+#         run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
-      - name: Привести название к нижнему регистру
-        run: echo "::set-output name=BRANCH_NAME::$(echo ${{ env.BRANCH_NAME }} | tr '[:upper:]' '[:lower:]')"
+#       - name: Привести название к нижнему регистру
+#         run: echo "::set-output name=BRANCH_NAME::$(echo ${{ env.BRANCH_NAME }} | tr '[:upper:]' '[:lower:]')"
 
-      - name: Проверить название ветки
-        run: |
-          if [ "${{ env.BRANCH_NAME }}" = "master" ]; then
-            echo "Выполнение прервано, так как название ветки равно 'master'"
-            exit 1
-          fi
+#       - name: Проверить название ветки
+#         run: |
+#           if [ "${{ env.BRANCH_NAME }}" = "master" ]; then
+#             echo "Выполнение прервано, так как название ветки равно 'master'"
+#             exit 1
+#           fi
 
-      - name: Install deps
-        run: yarn
+#       - name: Install deps
+#         run: yarn
 
-      - name: Cache Yarn packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+#       - name: Cache Yarn packages
+#         uses: actions/cache@v3
+#         with:
+#           path: ~/.cache/yarn
+#           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#           restore-keys: |
+#             ${{ runner.os }}-yarn-
 
-      - name: Build App
-        run: yarn build
+#       - name: Build App
+#         run: yarn build
 
-      - name: setup key
-        run: |
-          set -eu
-          mkdir "$HOME/.ssh"
-          echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/free-aws-sshkey.pem"
-          chmod 400 "$HOME/.ssh/free-aws-sshkey.pem"
-          eval $(ssh-agent -s)
+#       - name: setup key
+#         run: |
+#           set -eu
+#           mkdir "$HOME/.ssh"
+#           echo "${{secrets.SSH_KEY}}" > "$HOME/.ssh/free-aws-sshkey.pem"
+#           chmod 400 "$HOME/.ssh/free-aws-sshkey.pem"
+#           eval $(ssh-agent -s)
 
-      - name: deploy
-        run: |
-          ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-18-192-11-147.eu-central-1.compute.amazonaws.com "sudo mkdir -p /var/www/${{ env.BRANCH_NAME }}"
-          cd dist
-          rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem" --rsync-path="sudo rsync" --archive --compress --delete . ubuntu@ec2-18-192-11-147.eu-central-1.compute.amazonaws.com:/var/www/${{ env.BRANCH_NAME }}
+#       - name: deploy
+#         run: |
+#           ssh -i $HOME/.ssh/free-aws-sshkey.pem -o StrictHostKeyChecking=no ubuntu@ec2-18-192-11-147.eu-central-1.compute.amazonaws.com "sudo mkdir -p /var/www/${{ env.BRANCH_NAME }}"
+#           cd dist
+#           rsync -e "ssh -i $HOME/.ssh/free-aws-sshkey.pem" --rsync-path="sudo rsync" --archive --compress --delete . ubuntu@ec2-18-192-11-147.eu-central-1.compute.amazonaws.com:/var/www/${{ env.BRANCH_NAME }}
 
-      - name: send telegram message
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
+#       - name: send telegram message
+#         uses: appleboy/telegram-action@master
+#         with:
+#           to: ${{ secrets.TELEGRAM_TO }}
+#           token: ${{ secrets.TELEGRAM_TOKEN }}
+#           message: |
+#             ${{ github.actor }} created commit:
+#             Commit message: ${{ github.event.commits[0].message }}
 
-            Repository: ${{ github.repository }}
+#             Repository: ${{ github.repository }}
 
-            Link: ${{ env.BRANCH_NAME }}.zdorov-front.com
+#             Link: ${{ env.BRANCH_NAME }}.zdorov-front.com
 
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+#             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
