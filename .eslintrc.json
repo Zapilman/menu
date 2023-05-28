@@ -20,8 +20,8 @@
     "ecmaVersion": "latest",
     "project": "tsconfig.json",
     "tsconfigRootDir": ".",
-    "sourceType": "module",
-    "requireConfigFile": false
+    "requireConfigFile": false,
+    "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
