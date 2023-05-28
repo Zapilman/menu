@@ -24,6 +24,7 @@ module.exports = {
       _UI: path.resolve(__dirname, 'src/UI/'),
       _store: path.resolve(__dirname, 'src/store/'),
       _styles: path.resolve(__dirname, 'src/styles/'),
+      _i18n: path.resolve(__dirname, 'i18n/'),
     },
   },
   module: {

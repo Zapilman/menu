@@ -1,11 +1,11 @@
 {
-  "include": ["src/**/*", "custom.d.ts", "i18n"],
-  "exclude": ["./dist/", "node_modules"],
+  "include": ["src/**/*", "custom.d.ts"],
+  "exclude": ["./dist/", "node_modules", "i18n"],
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "esnext",
+    "module": "es6",
     "target": "es5",
     "allowJs": true,
     "moduleResolution": "node",
@@ -13,13 +13,13 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "type": "module",
     "paths": {
       "_components/*": ["./src/components/*"],
       "_modules/*": ["./src/modules/*"],
       "_UI/*": ["./src/UI/*"],
       "_store/*": ["./src/store/*"],
-      "_styles/*": ["./src/styles/*"]
+      "_styles/*": ["./src/styles/*"],
+      "_i18n/*": ["./i18n/*"]
       // "_hooks/*": ["./src/hooks/*"]
     }
   }

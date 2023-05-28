@@ -1,5 +1,5 @@
 {
-  "name": "recommend-app",
+  "name": "menu",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -15,12 +15,10 @@
       "pre-push": "yarn lint"
     }
   },
-  "type": "module",
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
-    "@lokalise/node-api": "^9.8.1",
     "@reduxjs/toolkit": "^1.9.2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.2.4",
