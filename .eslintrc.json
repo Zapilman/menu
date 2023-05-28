@@ -15,13 +15,13 @@
       "version": "detect"
     }
   },
-  "requireConfigFile": false,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "project": "tsconfig.json",
     "tsconfigRootDir": ".",
-    "sourceType": "module"
+    "sourceType": "module",
+    "requireConfigFile": false
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
