@@ -38,7 +38,7 @@ jobs:
         run: curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
 
       - name: Get translations
-        run: node .\i18n\extract_translations.js
+        run: node extract_translations.js
 
       - name: Upload translations
         run: ./bin/lokalise2 --token b319d056c11b5779919044529c75d9c3db60a45d file upload --file translations.json --lang-iso en --project-id 4479144264646922bb4ee1.51100677
