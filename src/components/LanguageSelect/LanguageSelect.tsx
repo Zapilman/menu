@@ -11,7 +11,7 @@ interface TOption {
 }
 
 const options: TOption[] = [
-  { value: 'ua', label: 'UA' },
+  { value: 'uk', label: 'UA' },
   { value: 'en', label: 'EN' },
 ];
 
